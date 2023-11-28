@@ -58,7 +58,7 @@ bool Maze::CreateByPoleDown()
 		return false;
 	}
 
-	for (int y = 0; y < height_; y++)
+	for (int y = 0; y < height_; y++){
 		for (int x = 0; x < width_; x++) {
 			// ‡@ŠO•Ç‚ð¶¬
 			if (IsCreateOuterWall(y, x))SetBlock(y, x, b_Wall);
@@ -71,6 +71,7 @@ bool Maze::CreateByPoleDown()
 				while (KnockDownPole(y, x) == false);
 			}
 		}
+	}
 
 	SetCell(start_);
 	SetCell(goal_);

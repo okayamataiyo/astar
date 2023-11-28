@@ -132,12 +132,12 @@ private:
 
 	//local function
 
-		/// <summary>
-		/// 棒を倒す ※ CreateByPoleDown でのみ利用
-		/// </summary>
-		/// <param name="_y">ｙ座標</param>
-		/// <param name="_x">ｘ座標</param>
-		/// <returns>倒したか否か</returns>
+	/// <summary>
+	/// 棒を倒す ※ CreateByPoleDown でのみ利用
+	/// </summary>
+	/// <param name="_y">ｙ座標</param>
+	/// <param name="_x">ｘ座標</param>
+	/// <returns>倒したか否か</returns>
 	bool KnockDownPole(int _y, int _x);
 
 	//predicate function
