@@ -4,6 +4,10 @@
 
 class astar
 {
+private:
+
+public:
+	int Heuristic();
 
 };
 

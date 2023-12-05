@@ -107,6 +107,11 @@ bool Maze::KnockDownPole(int _y, int _x)
 		return false;
 }
 
+int Maze::GetTypeWidth()
+{
+	return 0;
+}
+
 void Maze::SetBlock(int _y, int _x, int _b)
 {
 	if (_x < 0 || _x >= width_)return;

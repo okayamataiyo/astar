@@ -12,7 +12,7 @@ class Player
 private:
 	//ƒƒ“ƒo•Ï”
 	Maze* maze_;
-	cell nowCell_;
+	cell cell_;
 	
 public:
 	Player();

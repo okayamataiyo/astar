@@ -28,7 +28,7 @@ struct cell {
 
 /// 迷路生成アルゴリズム番号
 enum GenerationAlgorithm {
-	ga_PoleDown,			//棒倒し法
+	ga_PoleDown,		//棒倒し法
 	ga_WallExtension,	//壁のばし法(利用不可)
 	ga_HoleDigging,		//穴掘り法(利用不可)
 };
@@ -84,7 +84,6 @@ public:
 	/// <summary>
 	/// 迷路を生成
 	/// </summary>
-
 	/// <returns>成功したか否か</returns>
 	bool Create();
 
@@ -105,11 +104,17 @@ public:
 	/// テーブルの現在の高さを取得
 	int GetHeight() { return height_; }
 
+	/// そのタイプがある高さを取得
+	int GetTypeHeight(int _b);
+
 	/// テーブルの幅を設定
 	void SetWidth(int _w) { width_ = _w; }
 
 	/// テーブルの現在の幅を取得
 	int GetWidth() { return width_; }
+
+	/// そのタイプがある幅を取得
+	int GetTypeWidth();
 
 	/// 指定した座標 (_y, _x) のセルに特定のブロックタイプ(_b)を設定
 	void SetBlock(int _y, int _x, int _b);
@@ -146,7 +151,7 @@ private:
 	bool IsCreateOuterWall(int _y, int _x) { return (_y == 0 || _y == height_ - 1 || _x == 0 || _x == width_ - 1); }
 
 	/// 指定した座標(_x,_y)に棒を作成して良いかどうかを判定
-	bool IsCreatePole(int _y, int _x) { return (isEven(_y) && isEven(_x)); }
+	bool IsCreatePole(int _y, int _x) { return (IsEven(_y) && IsEven(_x)); }
 
 	/// 指定した座標(_y, _x)にあるセルが特定のブロックタイプ(_b)であるかを判定
 	bool IsThis(int _b, int _y, int _x);
@@ -158,5 +163,5 @@ private:
 	bool IsFloor(int _y, int _x) { return IsThis(b_Floor, _y, _x); }
 
 	/// 指定した値が偶数であるかを判定
-	bool isEven(int _n) { return _n % 2 == 0; }
+	bool IsEven(int _n) { return _n % 2 == 0; }
 };

@@ -1,28 +1,25 @@
 #include "Player.h"
 
 Player::Player()
-	:maze_(nullptr),nowCell_(1,1,b_Player)
+	:maze_(nullptr),cell_(maze_->(b_Player),b_Player)
 {
+
 }
 
 void Player::Start(Maze* _maze)
 {
-	nowCell_()
 	maze_ = _maze;
-	maze_->SetCell(nowCell_);
+	maze_->SetCell(cell_);
 }
 
 void Player::Move()
 {
-	
 	Start(maze_);
-
-	
 }
 
 bool Player::IsGoal()
 {
-	return nowCell_ == maze_->goal_;
+	return cell_ == maze_->goal_;
 }
 
 int Player::NextPlayerPos()
