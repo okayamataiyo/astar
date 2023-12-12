@@ -104,17 +104,17 @@ public:
 	/// テーブルの現在の高さを取得
 	int GetHeight() { return height_; }
 
-	/// そのタイプがある高さを取得
+	/// 指定したタイプがある高さを取得
 	int GetTypeHeight(int _b);
+
+	/// 指定したタイプがある幅を取得
+	int GetTypeWidth(int _b);
 
 	/// テーブルの幅を設定
 	void SetWidth(int _w) { width_ = _w; }
 
 	/// テーブルの現在の幅を取得
 	int GetWidth() { return width_; }
-
-	/// そのタイプがある幅を取得
-	int GetTypeWidth();
 
 	/// 指定した座標 (_y, _x) のセルに特定のブロックタイプ(_b)を設定
 	void SetBlock(int _y, int _x, int _b);

@@ -4,7 +4,8 @@
 
 int astar::Heuristic()
 {
-	Maze* maze;
-	abs(maze->GetWidth())- abs(maze->GetHeight());
+	Maze maze;
+	maze.Create();
+	abs(maze.GetWidth())- abs(maze.GetHeight());
 	return 0;
 }
