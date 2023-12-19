@@ -128,6 +128,9 @@ public:
 	/// 指定した座標 (_y, _x) のセルデータを設定
 	void SetCell(cell _c) { table_[_c.y][_c.x] = _c; }
 
+	/// 指定した座標(_y, _x)にあるセルが壁であるかを判定
+	bool IsWall(int _y, int _x) { return IsThis(b_Wall, _y, _x); }
+
 private:
 	/// <summary>
 	/// 棒倒し法による生成
@@ -155,9 +158,6 @@ private:
 
 	/// 指定した座標(_y, _x)にあるセルが特定のブロックタイプ(_b)であるかを判定
 	bool IsThis(int _b, int _y, int _x);
-
-	/// 指定した座標(_y, _x)にあるセルが壁であるかを判定
-	bool IsWall(int _y, int _x) { return IsThis(b_Wall, _y, _x); }
 
 	/// 指定した座標(_y, _x)にあるセルが床であるかを判定
 	bool IsFloor(int _y, int _x) { return IsThis(b_Floor, _y, _x); }

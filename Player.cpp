@@ -1,7 +1,8 @@
 #include "Player.h"
 
 Player::Player()
-	:walk_H(1),walk_W(1),maze_(nullptr),cell_(walk_H, walk_W, b_Player)
+	:GoalHeight_(0), GoalWidth_(0),PlayerHeight_(1),PlayerWidth_(1), Heuristic_(0)
+	, Cost_(0),table_(maze_->GetWidth(),maze_->GetHeight()), maze_(nullptr), cell_(PlayerHeight_, PlayerWidth_, b_Player)
 {
 
 }
@@ -15,8 +16,47 @@ void Player::Start(Maze* _maze)
 
 void Player::Move()
 {
-	cout << "プレイヤーの位置は y = " << maze_->GetTypeHeight(b_Player) << endl;
-	cout << "                   x = " << maze_->GetTypeWidth(b_Player) << endl;
+	Dijkstra();
+	Heuristic();
+}
+
+void Player::Heuristic()
+{
+	Heuristic_ = abs(maze_->GetTypeHeight(b_Goal) - abs(maze_->GetTypeHeight(b_Player)))
+		+abs(maze_->GetTypeWidth(b_Goal) - abs(maze_->GetTypeWidth(b_Player)));
+	GoalHeight_ = maze_->GetTypeHeight(b_Goal);
+	GoalWidth_ = maze_->GetTypeWidth(b_Goal);
+	PlayerHeight_ = maze_->GetTypeHeight(b_Player);
+	PlayerWidth_ = maze_->GetTypeWidth(b_Player);
+	cout << "Cost         = " << Cost_ << endl;
+	cout << "Heuristic    = " << Heuristic_ << endl;
+	cout << "GoalHeight   = " << GoalHeight_ << endl;
+	cout << "GoalWidth    = " << GoalWidth_ << endl;
+	cout << "PlayerHeight = " << PlayerHeight_ << endl;
+	cout << "PlayerWidth  = " << PlayerWidth_ << endl;
+}
+
+void Player::Dijkstra()
+{
+	if (maze_->IsWall(PlayerHeight_, PlayerWidth_++) == false)
+	{
+		Cost_++;
+	}
+
+	if (maze_->IsWall(PlayerHeight_++, PlayerWidth_) == false)
+	{
+		Cost_++;
+	}
+
+	if (maze_->IsWall(PlayerHeight_, PlayerWidth_--) == false)
+	{
+		Cost_++;
+	}
+
+	if (maze_->IsWall(PlayerHeight_--, PlayerWidth_) == false)
+	{
+		Cost_++;
+	}
 }
 
 bool Player::IsGoal()
