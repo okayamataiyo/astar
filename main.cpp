@@ -21,16 +21,16 @@ int main()
 
 	Player* pPlayer = new Player;
 	pPlayer->Start(pMaze);
-	pMaze->Output();
-
-	while (true)
+	int turn = 0;
+	while (turn <= 50)
 	{
 		pPlayer->Move();
 
 		cout << endl << "nextData :" << endl;
-		pMaze->Output();
 
 		if (pPlayer->IsGoal())break;
+
+		turn++;
 	}
 
 	cout << "Goal" << endl;

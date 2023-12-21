@@ -116,7 +116,7 @@ public:
 	/// テーブルの現在の幅を取得
 	int GetWidth() { return width_; }
 
-	/// 指定した座標 (_y, _x) のセルに特定のブロックタイプ(_b)を設定
+	/// 指定した座標 (_y, _x) のセルに特定のブロックタイプ(_b)を設定※プレイヤーの移動にだけ使って
 	void SetBlock(int _y, int _x, int _b);
 
 	/// 指定した座標 (_y, _x) のセルのブロックタイプを取得
@@ -130,6 +130,9 @@ public:
 
 	/// 指定した座標(_y, _x)にあるセルが壁であるかを判定
 	bool IsWall(int _y, int _x) { return IsThis(b_Wall, _y, _x); }
+
+	bool IsGoal(int _y, int _x) { return IsThis(b_Goal, _y, _x); }
+
 
 private:
 	/// <summary>

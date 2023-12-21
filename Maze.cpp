@@ -45,6 +45,7 @@ bool Maze::Output()
 	{
 		for (int x = 0; x < width_; x++)
 		{
+			//if (table_[y][x].block == b_Wall)table_[y][x].block = b_Floor;
 			if (table_[y][x].block == b_Floor)cout << " ";
 			if (table_[y][x].block == b_Wall)cout << "¡";
 			if (table_[y][x].block == b_Start)cout << "‚r";

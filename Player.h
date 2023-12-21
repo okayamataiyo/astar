@@ -16,9 +16,12 @@ private:
 	int GoalWidth_;
 	int PlayerHeight_;
 	int PlayerWidth_;
-	int Heuristic_;
+	int HUp_;
+	int HDown_;
+	int HLeft_;
+	int HRight_;
 	int Cost_;
-	vector<vector<int>> table_;
+	vector<int> table_;
 	Maze* maze_;
 	cell cell_;
 	
@@ -27,7 +30,10 @@ public:
 	void Start(Maze* _maze);
 	void Move();
 	void Heuristic();
-	void Dijkstra();
+	int Up();
+	int Down();
+	int Left();
+	int Right();
 	bool IsGoal();
 	int NextPlayerPos();
 };
