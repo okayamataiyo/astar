@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Maze.h"
 #include "Player.h"
-#include "astar.h"
 
 using namespace std;
 
